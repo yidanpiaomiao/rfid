@@ -1,0 +1,38 @@
+1.Frank Wang advice about hash function:
+	H is a hash function, so the output is a fixed length. 
+	Hash functions can map arbitrary length strings to a fixed length. 
+	After you get the output from H, you need to map the hash output to a point on curve, 
+	using the set_to_hash, and you can get the point back by using from_hash.
+	
+	Conclusion: set_to_hash()->map to curve point
+	from_hash()->map to curve point and return the point
+	
+	So we always need to use from_hash() function.
+	
+	If the buffer is shorter than 2*HASH_BYTES, well, it won't be as uniform,
+    but the buffer will be zero-padded on the right
+    
+    ??invert_elligator()??
+    
+2.Decode and encode
+	decode():
+	Initialize from C fixed-length byte string.
+	Return DECAF_FAILURE the string was the wrong length, 
+	or wasn't the encoding of a point.
+	
+	encode():
+	Encode to a C buffer. The identity encodes to all zeros.
+	
+	??steg_encode():??
+
+3.Elligator
+	Elliptic-curve points are encoded so as to be indistinguishable 
+	from uniform random strings. 
+	
+4.test_decaf.cxx
+	test_elligator():
+	"steg round-trip" consists of steg_encode() and from_hash().
+	It seems that Point(SpongeRng) will output a different point every time 
+	when you call the constructor.
+	but steg_encode() and from_hash() can be inverted.
+	

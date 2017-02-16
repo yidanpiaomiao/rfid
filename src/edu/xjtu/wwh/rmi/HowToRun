@@ -1,0 +1,17 @@
+	First,RMIServer runs in Hadoop cluster and RMIclient runs in local.RMIServer
+provides remote methods you can find in CF.java.
+	When a RMIClient who acts as data owner, it will first define a "ACT" string and
+get a unique clientID. Then try to produce related keys using the "ACT" string. And
+then it will run encFun() to get encrypted bytes. Here remember that the keys produced
+above is the data 's related ACT keys and the encrypted bytes are stored in database.
+	When a RMIClinet who acts as third party, it will first define a "attr_str" and
+provide the aimed clientID. Then try to produce decryption keys using "attr_str". And
+then it will run decFun() to get decrypted bytes. Here remember that the keys produced
+above is the third party's private key(prv) and the decrypted bytes are stored in database.
+	When a RMIClient who acts as data owner and want to update the encrypted bytes. It
+will first pull encrypted data from database. And then , it is important that the client
+need to run updateKeys() to generate new "usk". Finally, the RMIClient can run decFun()
+to decrypt the data using the new "usk".
+	The last but not the least, RMIServer runs as a trusted service provider. 
+
+	
