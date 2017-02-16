@@ -1,12 +1,10 @@
 # rfid
 Design and implementation of industrial data security protection mechanism based on hybrid cloud.
-
 The project index page is in http://wangweihua.net/RFID where you can find the related files and recent progress.
 
 Thanks to Mike Humburg and Frank Wang for patient guidence.
 
 Below are the reference papers.
-
 [1] Qi S, Zheng Y, Li M, et al. Scalable Data Access Control in RFID-Enabled Supply Chain[J]. IEEE/ACM Transactions on Networking, 2014:71-82.
 [2] Wang F, Mickens J, Zeldovich N, et al. Sieve: cryptographically enforced access control for user data in untrusted clouds[C]// Usenix Conference on Networked Systems Design and Implementation. USENIX Association, 2016:611-626.
 [3] Hamburg M. Ed448-Goldilocks, a new elliptic curve[R]. Cryptology ePrint Archive, Report 2015/625, 2015. http://eprint. iacr. org, 2015.
